@@ -1,11 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Adding a first </p>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinco De Mayo Party 🌮</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  </head>
+
+  <body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+     
+        <!--Navbar-->
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Home
+            </a>
+      
+            <a class="navbar-item">
+              Documentation
+            </a>
+      
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Jobs
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+              
+        </div>
+      </nav>
+
+<!-- Main website content-->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Cinco De Mayo Party
+      </h1>
+
+        <div>
+        <p class="subtitle">
+        Cinco de Mayo Party Planner! 🌵
+
+        <!--Will add a live countdown here-->
+        <br />Days til Cinco De Mayo 2021.
+        </p>
+        </div>
+        
+        <!--Card 1: Handles Taco Searches-->
+        <div class="card" id="tacoDiv">
+        <header class="card-header">
+            <p class="card-header-title">Taco Search</p></header>
+        <p>
+        <input id="tacoSearch"></input>
+        <button id="tacoBtn">Search</button>
+        <br />
+        <span id="tacoResults">Taco results will populate here.</span>
+        </p>
+        </div>
+
+        <!--Card 2: Handles Cocktail Searches-->
+        <div class="card" id="cocktailDiv">
+        <header class="card-header">
+            <p class="card-header-title">Cocktail Search</p></header>
+        <p>
+        <input id="cocktailSearch"></input>
+        <button id="cocktailBtn">Search</button>
+        <br />
+        <span id="cocktailResults">Drink results will populate here.</span>
+        </p>
+        </div>
+
+    </div>
+
+    </section>
+    <script src="script.js"></script>
+  </body>
+
 </html>
