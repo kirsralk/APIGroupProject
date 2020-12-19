@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
+    <title>Cinco De Mayo Party</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="icon" type="image/png" href="assets/tacofavi.png">
+
+    <!--Run script for countdown to next May 5th-->
+    <script>
+        var countDownDate = new Date("May 5, 2021 00:00:01").getTime();
+
+        var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+        // Display the result in the element with id="demo", update every second
+        document.getElementById("countdown").innerHTML = days + " Days until Cinco de Mayo 2021! ";
+        }, 1000);
+        </script>
+
+=======
+    <title>Cinco De Mayo Party 🌮</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+>>>>>>> origin
+  </head>
+
+  <body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+     
+        <!--Navbar-->
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Home
+            </a>
+      
+            <a class="navbar-item">
+              Documentation
+            </a>
+      
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Jobs
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+              
+        </div>
+<<<<<<< HEAD
+    </nav>
+=======
+      </nav>
+>>>>>>> origin
+
+<!-- Main website content-->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Cinco De Mayo Party
+      </h1>
+
+        <div>
+<<<<<<< HEAD
+        <p class="subtitle">Cinco de Mayo Party Planner! 🌵</p>
+
+        <!-- Countdown, see javascript in header-->
+        <p id="countdown"></p>
+       
+        <figure class="image is-2by1">
+        <img src="https://bulma.io/images/placeholders/640x320.png">
+        </figure>
+        <br />
+        <br />
+        <p>Not sure where to begin? Click to see our:</p>
+        <button id="popTaco" class="button is-danger is-light">Most Popular Taco</button>
+        <button id="popCocktail" class="button is-danger is-light">Most Popular Cocktail</button>
+        <br />
+        <br />
+=======
+        <p class="subtitle">
+        Cinco de Mayo Party Planner! 🌵
+
+        <!--Will add a live countdown here-->
+        <br />Days til Cinco De Mayo 2021.
+        </p>
+>>>>>>> origin
+        </div>
+        
+        <!--Card 1: Handles Taco Searches-->
+        <div class="card" id="tacoDiv">
+        <header class="card-header">
+<<<<<<< HEAD
+            <p class="card-header-title">Taco Search</p>
+        </header>
+        <p>
+            An explanation of the taco search goes here.
+        <input id="tacoSearch" class="input is-danger"></input>
+        <br />
+        <label class="checkbox">
+            <input type="checkbox" id="vegOnly">
+            Vegetarian Recipes Only 🌿
+        </label>
+        <br />
+        <br />
+        <button id="tacoBtn" class="button is-warning">Search</button>
+        <br />
+        <br />
+        <span id="tacoResults">Taco results will populate here.</span>
+        </p>
+        <br />
+        <br />
+=======
+            <p class="card-header-title">Taco Search</p></header>
+        <p>
+        <input id="tacoSearch"></input>
+        <button id="tacoBtn">Search</button>
+        <br />
+        <span id="tacoResults">Taco results will populate here.</span>
+        </p>
+>>>>>>> origin
+        </div>
+
+        <!--Card 2: Handles Cocktail Searches-->
+        <div class="card" id="cocktailDiv">
+        <header class="card-header">
+<<<<<<< HEAD
+            <p class="card-header-title">Cocktail Search</p>
+        </header>
+        <p>
+            An explanation of the cocktail search goes here.
+        <input id="cocktailSearch" class="input is-danger"></input>
+        <br />
+        <br />
+            Or choose from the most popular alcohol selections:
+        <div class="select is-warning is-rounded">
+            <select>
+              <option value="nil">Select alcohol</option>
+              <option value="tequila">Tequila</option>
+              <option value="gin">Gin</option>
+              <option value="vodka">Vodka</option>
+              <option value="rum">Rum</option>
+            </select>
+          </div>
+        <button id="cocktailBtn" class="button is-warning">Search</button>
+        <br />
+=======
+            <p class="card-header-title">Cocktail Search</p></header>
+        <p>
+        <input id="cocktailSearch"></input>
+        <button id="cocktailBtn">Search</button>
+>>>>>>> origin
+        <br />
+        <span id="cocktailResults">Drink results will populate here.</span>
+        </p>
+        </div>
+
+    </div>
+
+    </section>
+    <script src="script.js"></script>
+  </body>
+
+</html>
