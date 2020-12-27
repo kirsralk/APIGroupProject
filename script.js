@@ -14,17 +14,14 @@
             let cocktailImage = document.createElement("img");
     
             displayCocktail.innerHTML = cocktailData.drinks[i].strDrink;
-            cocktailImage.setAttribute("src", cocktailData.drinks[i].strDrinkThumb)
+            cocktailImage.setAttribute("src", cocktailData.drinks[i].strDrinkThumb);
+            cocktailImage.setAttribute("class", "image is-128x128");
+            let displayDrinks = document.getElementById("cocktailResults");
 
-            let displayDrinks = document.getElementById("cocktailResults")
 
-            displayDrinks.appendChild(displayCocktail)
-            displayDrinks.appendChild(cocktailImage)
-
+            displayDrinks.appendChild(displayCocktail);
+            displayDrinks.appendChild(cocktailImage);
         }
-
-
-
 
         console.log(cocktailData)
     });
