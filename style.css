@@ -1,0 +1,8 @@
+body {
+    background-image: url("assets/resizedCactus.png");
+    background-size: cover;
+  }
+
+  .centered {
+    text-align: center;
+  }
