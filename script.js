@@ -77,17 +77,17 @@ function popularCocktail(queryUrlPopularCocktail)
        figureDrink.addClass("img-cocktail");
        spanImage.addClass("image is-128x128");
        //wraptextDiv.addClass("media-content");
-       var alco="Alcoholic";
+      //  var alco="Alcoholic";
        var strInstruction=$('<p>');
-       strInstruction.html(`<b>Instructions : </b>${CocktailData.drinks[i].strInstructions}`)
+       strInstruction.html(`<b>Instructions:</b> ${CocktailData.drinks[i].strInstructions}`)
        var strGlass=$('<p>');
-       strGlass.html(`<b> Glass :</b> ${CocktailData.drinks[i].strGlass}`)
+       strGlass.html(`<b> Glass:</b> ${CocktailData.drinks[i].strGlass}`)
        var imgsource=CocktailData.drinks[i].strDrinkThumb;
        var imgDrink=$('<img>');
        imgDrink.attr("src",imgsource);
        var strDrink=$('<h1>');
        var strIsAlcoholic=$('<p>');
-        strIsAlcoholic.html(`<b>${alco}</b> : ${isAlcoholic}`);
+        strIsAlcoholic.html(`<b>Alcoholic:</b> ${isAlcoholic}`);
        var strIngrediens=$('<p>');
        var strMeasure=$('<p>');
       
@@ -137,8 +137,8 @@ function popularCocktail(queryUrlPopularCocktail)
      }
 
 
-       strIngrediens.html(`<b>Ingredient : </b>${ingrediensnotNull}`);
-       strMeasure.html(`<b>Measure : </b>${measureNonNull}`);
+       strIngrediens.html(`<b>Ingredients:</b> ${ingrediensnotNull}`);
+       strMeasure.html(`<b>Measure:</b> ${measureNonNull}`);
        strDrink.text(CocktailData.drinks[i].strDrink);
        strDrink.addClass("has-text-weight-bold");
 
@@ -190,12 +190,12 @@ $("#popCocktail").on("click",function(){
   $('.popCocktailH-S').show(500);
   $(".Panel-C").empty();
    popularCocktail(queryURLPC);
-   $(".result").text("Popular Cocktail");
+   $(".panel-heading").text("Most Popular Cocktail");
 });
 $("#popTaco").on("click",function(){
   $('.popCocktailH-S').show(500);
   $(".Panel-C").empty();
    populateRandomTaco(queryURLRT);
-   $(".result").text("Here is your Taco");
+   $(".panel-heading").text("Here is your Taco");
 });
 
