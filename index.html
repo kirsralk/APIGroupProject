@@ -54,7 +54,8 @@
           <p>Not sure where to begin? Click to see our:</p>
             <button id="popTaco" class="button is-danger is-light">Generate a Taco</button>
             <button id="popCocktail" class="button is-danger is-light">Most Popular Cocktail</button>
-            <!-- Create a Panel for 5 popular Cocktail -->
+            
+            <!-- Create a Panel for Most Popular Cocktail -->
          <!-- Start -->
          <br />
          <br />
@@ -81,73 +82,84 @@
     <div class="columns">
       <div class="column is-one-quarter"></div>   
 
-      <!--Card 1: Handles Taco Searches-->
+      <!--Form 1: Handles Taco Searches-->
       <div class="column is-half">
-        <div class="card" id="tacoDiv">
-          <header class="card-header">
-            <p class="card-header-title">Taco Search</p>
-          </header>
+        <h3 class="title is-3">Taco Search 🌮</h3>
 
-      <p> Search for receipes by keyword or ingredient.  For example, try "beef" or "spicy".
-      <input id="tacoSearch" class="input is-danger"></input>
-      <br />
-
-      <label class="checkbox">
-          <input type="checkbox" id="vegOnly">
-          Vegetarian Recipes Only 🌿
-      </label>
-      <br />
-      <br />
-          <button id="tacoBtn" class="button is-warning">Search</button>
-      <br />
-      <br />
-
-      <!--Taco Results populate here-->
+        <div class="field has-addons" id="tacoDiv">
+          <!-- <label class="label">Taco Search</label> -->
+          <p class="control is-expanded">
+            <input class="input is-danger" type="text" placeholder="Enter taco keywords" id="tacoSearch">
+          </p>
+          <p class="control">
+             <a class="button is-warning" id="tacoBtn">Search</a>
+          </p>
           <span id="tacoResults"></span>
-        </div> <!--End card-->
+        </div> <!--End Form-->
+
       </div> <!--End this column container-->
       <div class="column is-one-quarter"></div>
-
     </div> <!--End this row-->
 
 
-      <!--Card 2: Handles Cocktail Searches-->
+          <!--Card 2: Handles Cocktail Searches-->
 
-    <div class="columns">
-      <div class="column is-one-quarter"></div>
+          <div class="columns">
+            <div class="column is-one-quarter"></div>
 
+      <!--Form 2: Handles Cocktail Searches-->
       <div class="column is-half">
-        <div class="card" id="cocktailDiv">
-        <header class="card-header">
-          <p class="card-header-title">Cocktail Search</p>
-          </header>
-          <p> Search for receipes by keyword or ingredient.  For example, try "margarita" or "tequila".</p>
-      <input id="cocktailSearch" class="input is-danger"></input>
-      <br />
-      <br /> Or choose from the most popular alcohol selections:
-      <div class="select is-warning is-rounded">
-          <select>
-            <option value="nil">Select alcohol</option>
-            <option value="tequila">Tequila</option>
-            <option value="gin">Gin</option>
-            <option value="vodka">Vodka</option>
-            <option value="rum">Rum</option>
-          </select>
+        <h3 class="title is-3">Cocktail Search 🍹</h3>
+
+        <div class="field has-addons" id="cocktailDiv">
+          <!-- <label class="label">Taco Search</label> -->
+          <p class="control is-expanded">
+            <input class="input is-danger" type="text" placeholder="Enter cocktail keywords" id="cocktailSearch">
+          </p>
+          <p class="control">
+             <a class="button is-warning" id="cocktailBtn">Search</a>
+          </p>
+          <span id="tacoResults"></span>
+        </div> <!--End Form-->
+
+        <br /> 
+        <p class="centered"><b>Or choose from the most popular alcohol selections:</b></p>
+        <div class="field has-addons has-addons-centered">
+          <p class="control">
+            <span class="select is-warning">
+              <select>
+                <option value="nil">Select alcohol</option>
+                <option value="tequila">Tequila</option>
+                <option value="gin">Gin</option>
+                <option value="vodka">Vodka</option>
+                <option value="rum">Rum</option>
+              </select>
+            </span>
+          </p>
+          <p class="control">
+            <a class="button is-warning" id="alcoholBtn">Search</a>
+          </p>
         </div>
-      <button id="cocktailBtn" class="button is-warning">Search</button>
-      <br />
-      <br />
 
       <!--Cocktail Results will populate here-->
       <span id="cocktailResults"></span>
-      </div>
+    </div> <!--End form-->
 
     </div> <!--End this row-->
     <div class="column is-one-quarter"></div>
     </div>
   </section>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="script.js"></script>
 </body>
+
+<footer>
+  <p class="centered"><b>💃 Made by Kirsi, Christian & Mike</b></p>
+  <p class="centered">Powered by <a href="https://bulma.io/" target="blank">Bulma</a>, 
+    <a href="https://github.com/evz/tacofancy-api" target="blank">TacoFancyAPI</a> & 
+    <a href="https://www.thecocktaildb.com/" target="blank">TheCocktailDB</a>. </p>
+    <br />
+</footer>
 
 </html>

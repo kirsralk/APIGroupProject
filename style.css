@@ -3,13 +3,44 @@ body {
     background-size: cover;
   }
 
-  .centered {
+footer {
+    background-image: none;
+  }
+
+a {
+    color: rgb(161, 9, 9);
+  }
+
+.centered {
     text-align: center;
   }
-  .left-populated-result{
+
+.cardBorder {
+    border: 5px;
+  }
+
+.left-populated-result{
     text-align: left;
   }
-  .img-cocktail{
+.img-cocktail{
     float: left;
     margin-right: 30px;
   }
+
+  /* sticky footer */
+  html, body{
+  height: 100%;
+}
+body{
+  display: flex;
+  flex-flow: column;
+}
+footer{
+  margin-top: auto;
+}
+  /* end sticky footer */
+
+
+
+
+
