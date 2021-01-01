@@ -6,3 +6,10 @@ body {
   .centered {
     text-align: center;
   }
+  .left-populated-result{
+    text-align: left;
+  }
+  .img-cocktail{
+    float: left;
+    margin-right: 30px;
+  }

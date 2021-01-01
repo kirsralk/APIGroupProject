@@ -42,7 +42,7 @@
   <section class="section">
 
     <!--Top row with headings-->
-    <div class="columns is-centered">
+    <div class="columns is-centered is-12">
       <div class="column is-one-quarter"></div>
       <div class="column is-half centered">
           <h1 class="title">Cinco De Mayo Party Planner!🌵</h1>
@@ -52,8 +52,25 @@
 
       <!--Popular recipe buttons-->
           <p>Not sure where to begin? Click to see our:</p>
-            <button id="popTaco" class="button is-danger is-light">Most Popular Taco</button>
+            <button id="popTaco" class="button is-danger is-light">Generate a Taco</button>
             <button id="popCocktail" class="button is-danger is-light">Most Popular Cocktail</button>
+            <!-- Create a Panel for 5 popular Cocktail -->
+         <!-- Start -->
+         <br />
+         <br />
+          <div class='container popCocktailH-S left-populated-result'> 
+            <div class="columns is-right"> 
+              <div class="column is-12"> 
+                <nav class="panel"> 
+                  <p class="panel-heading"> 
+                    <span class='title is-6 result'>Results</span> 
+                  </p>
+                  <div class="Panel-C"></div>  
+                </nav> 
+              </div> 
+            </div> 
+          </div> 
+           <!-- End -->
           <br />
           <br />
       </div>  
@@ -129,7 +146,7 @@
     <div class="column is-one-quarter"></div>
     </div>
   </section>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="script.js"></script>
 </body>
 
