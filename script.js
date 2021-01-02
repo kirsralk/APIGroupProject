@@ -181,7 +181,7 @@ $("#popTaco").on("click",function(){
         let displayDrinks = document.getElementById("resHere");
 
         // Reset search result
-        // displayDrinks.innerHTML = "";
+        displayDrinks.innerHTML = "";
 
         // if Results or No Results
         if (cocktailData.drinks === null) {
