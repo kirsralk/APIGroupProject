@@ -12,36 +12,6 @@ var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 document.getElementById("countdown").innerHTML = "<b>" + days + " Days until Cinco de Mayo 2021!" + "</b>";
 });
 
-
-/* Retrieve images of cocktail results
- document.getElementById("cocktailBtn").addEventListener("click", function() {
-    let searchField = document.getElementById("cocktailSearch");
-
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + searchField.value)
-    .then((response) => {
-        return response.json();
-    })
-    // ************************************************** APP  starts HERE*****************************************************
-    .then((cocktailData) => {
-    
-        for (let i =0 ; i < cocktailData.drinks.length ; i++) {
-            let displayCocktail = document.createElement("div");
-            let cocktailImage = document.createElement("img");
-    
-            displayCocktail.innerHTML = cocktailData.drinks[i].strDrink;
-            cocktailImage.setAttribute("src", cocktailData.drinks[i].strDrinkThumb);
-            cocktailImage.setAttribute("class", "image is-128x128");
-            let displayDrinks = document.getElementById("cocktailResults");
-
-
-            displayDrinks.appendChild(displayCocktail);
-            displayDrinks.appendChild(cocktailImage);
-        }
-
-        console.log(cocktailData)
-    });
-});   */
-
 //Setup variables
 //query Url for popular cocktail
 var queryURLPC="https://www.thecocktaildb.com/api/json/v2/9973533/popular.php";
@@ -193,5 +163,72 @@ $("#popTaco").on("click",function(){
 	populateRandomTaco(queryURLRT);
 	$(".panel-heading").text("Here is your Taco");
 	$("#cocktailImg").hide();
+});
+
+// ------------------------------------------------------ MIKES ---------------------------------------------------------
+//Retrieve images of cocktail results
+ document.getElementById("cocktailBtn").addEventListener("click", function() {
+    let searchField = document.getElementById("cocktailSearch");
+
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + searchField.value)
+    .then((response) => {
+        return response.json();
+    })
+    // ************************************************** APP  starts HERE*****************************************************
+    .then((cocktailData) => {
+    
+        // Get place holder element from html
+        let displayDrinks = document.getElementById("cocktailResults");
+
+        // Reset search result
+        displayDrinks.innerHTML = "";
+
+        // if Results or No Results
+        if (cocktailData.drinks === null) {
+          // no result display
+          let resultDisplay = document.createElement("p");
+          resultDisplay.innerHTML = "<span style='color: red;'> No Results Display </span>"
+          displayDrinks.appendChild(resultDisplay);
+
+        }
+
+        else { 
+        // new search
+          for (let i =0 ; i < cocktailData.drinks.length ; i++) {
+              let displayCocktail = document.createElement("div");
+              let cocktailImage = document.createElement("img");
+      
+              displayCocktail.innerHTML = cocktailData.drinks[i].strDrink;
+              cocktailImage.setAttribute("src", cocktailData.drinks[i].strDrinkThumb);
+              cocktailImage.setAttribute("class", "image is-128x128");
+            
+
+
+              displayDrinks.appendChild(displayCocktail);
+              displayDrinks.appendChild(cocktailImage);
+          }
+
+        }
+
+ 
+
+        console.log(cocktailData)
+    });
+});
+
+
+// ENTER KEY SEARCH
+// Get the input field
+var input = document.getElementById("cocktailSearch");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("cocktailBtn").click();
+  }
 });
 
