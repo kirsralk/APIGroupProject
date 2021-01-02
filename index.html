@@ -36,7 +36,7 @@
     <!--Top row with headings-->
     <div class="columns is-centered is-12">
       <div class="column is-one-quarter"></div>
-      <div class="column is-half centered">
+      <div class="column is-half has-text-centered">
           <h1 class="title">Cinco De Mayo Party Planner!🌵</h1>
           <p class="subtitle">Your handy resource for Mexican-inspired food and beverage recipes.</p>
       <!-- Countdown, see javascript in header-->
@@ -50,11 +50,11 @@
       <!-- Create a Panel for Most Popular Cocktail -->
           <br />
           <br />
-           <article class="panel is-warning popCocktailH-S">
+           <article class="panel is-warning popCocktailH-S" style="display: none;">
             <p class="panel-heading"></p>
-            <div class="panel-block left-aligned whiteBgd">
-              <span class="result"></span>
-              <span class="Panel-C"></span>
+            <div class="panel-block has-text-left whiteBgd overflow">
+              <img class ="image is-128x128" id="cocktailImg" src="" style="display: none;">
+              <a class="panel-block" id="panelC"></a>
             </div>
           </article>
           <br />
@@ -108,7 +108,7 @@
         </div> <!--End Form-->
 
         <br /> 
-        <p class="centered"><b>Or choose from the most popular alcohol selections:</b></p>
+        <p class="has-text-centered"><b>Or choose from the most popular alcohol selections:</b></p>
         <div class="field has-addons has-addons-centered">
           <p class="control">
             <span class="select is-warning">
@@ -140,8 +140,8 @@
 </body>
 
 <footer>
-  <p class="centered"><b>💃 Made by Kirsi, Christian & Mike</b></p>
-  <p class="centered">Powered by <a href="https://bulma.io/" target="blank">Bulma</a>, 
+  <p class="has-text-centered"><b>💃 Made by Kirsi, Christian & Mike</b></p>
+  <p class="has-text-centered">Powered by <a href="https://bulma.io/" target="blank">Bulma</a>, 
     <a href="https://github.com/evz/tacofancy-api" target="blank">TacoFancyAPI</a> & 
     <a href="https://www.thecocktaildb.com/" target="blank">TheCocktailDB</a>. </p>
     <br />

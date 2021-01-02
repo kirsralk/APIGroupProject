@@ -8,19 +8,15 @@ body {
     background-size: cover;
   }
 
-/* Styles for specific classes*/
-.centered {
-    text-align: center;
-  }
-
-.left-aligned {
-    text-align: left;
-  }
 
 .img-cocktail {
     float: left;
     margin-right: 30px;
   }
+
+.overflow {
+  overflow-wrap: break-word;
+}
 
 .whiteBgd {
   background-color: white;
