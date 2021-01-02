@@ -178,10 +178,10 @@ $("#popTaco").on("click",function(){
     .then((cocktailData) => {
     
         // Get place holder element from html
-        let displayDrinks = document.getElementById("cocktailResults");
+        let displayDrinks = document.getElementById("resHere");
 
         // Reset search result
-        displayDrinks.innerHTML = "";
+        // displayDrinks.innerHTML = "";
 
         // if Results or No Results
         if (cocktailData.drinks === null) {
@@ -195,15 +195,12 @@ $("#popTaco").on("click",function(){
         else { 
         // new search
           for (let i =0 ; i < cocktailData.drinks.length ; i++) {
-              let displayCocktail = document.createElement("div");
+              let displayCocktail = document.createElement("p");
               let cocktailImage = document.createElement("img");
-      
+
               displayCocktail.innerHTML = cocktailData.drinks[i].strDrink;
               cocktailImage.setAttribute("src", cocktailData.drinks[i].strDrinkThumb);
               cocktailImage.setAttribute("class", "image is-128x128");
-            
-
-
               displayDrinks.appendChild(displayCocktail);
               displayDrinks.appendChild(cocktailImage);
           }

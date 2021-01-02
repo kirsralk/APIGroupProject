@@ -8,6 +8,10 @@ body {
     background-size: cover;
   }
 
+div {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .img-cocktail {
     float: left;
