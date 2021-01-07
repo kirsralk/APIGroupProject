@@ -16,7 +16,7 @@ document.getElementById("countdown").innerHTML = "<b>" + days + " Days until Cin
 //query Url for popular cocktail
 var queryURLPC="https://www.thecocktaildb.com/api/json/v2/9973533/popular.php";
 //Query url for random Taco
-var queryURLRT="http://taco-randomizer.herokuapp.com/random/";
+var queryURLRT="https://api.spoonacular.com/recipes/662744/information?apiKey=844a117f5f0d427abe3f7d0dda4d2705&includeNutrition=true";
 
 //Functions to retreive Popular cocktail
 function popularCocktail(queryUrlPopularCocktail){
@@ -130,20 +130,29 @@ function popularCocktail(queryUrlPopularCocktail){
 
 }
 
+
 //function to populate a random Taco
 function populateRandomTaco(queryRandomTaco) {
   $.ajax({
     url:queryRandomTaco,
     method: "GET"
   }).done(function(tacoData) {
-        var tacoSection=$('<a>')
+        var tacoSection=$('<a>');
         tacoSection.addClass("panel-block");
-        var pRandomTaco=$('<p>');
-        pRandomTaco.text(`${tacoData.base_layer.name}, with ${tacoData.condiment.name}, garnished with ${tacoData.mixin.name}, topped off with ${tacoData.seasoning.name} and wrapped in ${tacoData.shell.name} `);
+        var tacoName=$('<p>');
+         var pRandomTaco=$('<p>');
+         tacoName.text(tacoData.title);
+         var tacoimg=$("<img>");
+         tacoimg.attr("src",tacoData.image);
+         pRandomTaco.text(tacoData.instructions);
         
-        //appending new html element created
-        $("#panelC").append(tacoSection);
-        tacoSection.append(pRandomTaco);
+        // //appending new html element created
+         $("#panelC").append(tacoSection);
+         tacoSection.append(tacoName);
+         tacoSection.append(tacoimg)
+         tacoSection.append(pRandomTaco);
+         console.log(tacoData);
+        //console.log(tacoData.instructions);
       });
 
 };
@@ -164,6 +173,16 @@ $("#popTaco").on("click",function(){
 	$(".panel-heading").text("Here is your Taco");
 	$("#cocktailImg").hide();
 });
+
+//Close Panel for Most Popular cocktail or Random TACO
+$("#closePanel").on("click",function(){
+  $('.popCocktailH-S').hide(1000);
+  });
+  
+  //Save as Favorite
+  $("#closePanel").on("click",function(){
+    $('.popCocktailH-S').hide();
+    });
 
 // ------------------------------------------------------ MIKES ---------------------------------------------------------
 //Retrieve images of cocktail results
