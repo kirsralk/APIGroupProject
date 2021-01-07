@@ -17,6 +17,17 @@ document.getElementById("countdown").innerHTML = "<b>" + days + " Days until Cin
 var queryURLPC="https://www.thecocktaildb.com/api/json/v2/9973533/popular.php";
 //Query url for random Taco
 var queryURLRT="https://api.spoonacular.com/recipes/662744/information?apiKey=844a117f5f0d427abe3f7d0dda4d2705&includeNutrition=true";
+//Query URL for Taco Search
+var queryURLTaco ="https://api.spoonacular.com/recipes/complexSearch";
+
+function searchTaco(queryURLTaco) {
+  $.ajax({
+    url: queryURLTaco,
+    method: "GET"
+  }).done(function(){
+    console.log()
+  });
+};
 
 //Functions to retreive Popular cocktail
 function popularCocktail(queryUrlPopularCocktail){
@@ -37,9 +48,8 @@ function popularCocktail(queryUrlPopularCocktail){
 		var strIsAlcoholic = $('<p>');
 		strIsAlcoholic.html(`<b>Alcoholic:</b> ${isAlcoholic}`);
 			
-		// Create a new div to display results (will append to existing <a> with id="panelC")
+		// Create a new div to display results (will append to existing <div> id="panelC")
 		var cocktailDiv = $('<div>');
-		var wraptextDiv = $('<div>');
 		
 		// Create a new <figure> tag to display img portion of the results
 		var imgSource = cocktailData.drinks[i].strDrinkThumb;
@@ -119,7 +129,6 @@ function popularCocktail(queryUrlPopularCocktail){
 		cocktailDiv.append(strDrink);
 		$("#cocktailImg").attr("src", imgSource);
 		$("#cocktailImg").show();
-		cocktailDiv.append(wraptextDiv);
 		cocktailDiv.append(strIsAlcoholic);
 		cocktailDiv.append(strIngred);
 		cocktailDiv.append(strMeasure);
@@ -128,7 +137,7 @@ function popularCocktail(queryUrlPopularCocktail){
      
     });     
 
-}
+};
 
 
 //function to populate a random Taco
@@ -137,28 +146,31 @@ function populateRandomTaco(queryRandomTaco) {
     url:queryRandomTaco,
     method: "GET"
   }).done(function(tacoData) {
-        var tacoSection=$('<a>');
-        tacoSection.addClass("panel-block");
-        var tacoName=$('<p>');
-         var pRandomTaco=$('<p>');
-         tacoName.text(tacoData.title);
-         var tacoimg=$("<img>");
-         tacoimg.attr("src",tacoData.image);
-         pRandomTaco.text(tacoData.instructions);
+        var tacoDiv = $('<div>');
+        var tacoName = $('<p>');
+        tacoName.text(tacoData.title);        
+        var pRandomTaco=$('<p>');
+        pRandomTaco.text(tacoData.instructions);
+        var tacoImg = tacoData.image;
+
+        // Create a new <h4> tag to display the drink's title
+		    var strTaco = $('<h4>');
+		    strTaco.text(tacoData.title);
+		    strTaco.addClass("subtitle is-4");
         
-        // //appending new html element created
-         $("#panelC").append(tacoSection);
-         tacoSection.append(tacoName);
-         tacoSection.append(tacoimg)
-         tacoSection.append(pRandomTaco);
+        // Appending new html element created
+         $("#panelC").append(tacoDiv);
+         tacoDiv.append(strTaco);
+         $("#cocktailImg").attr("src", tacoImg);
+         $("#cocktailImg").show();
+         tacoDiv.append(pRandomTaco);
          console.log(tacoData);
         //console.log(tacoData.instructions);
       });
-
 };
 
 //Main Process
-//To populate 5 popular cocktails
+//To populate the Most Popular Cocktail
 $("#popCocktail").on("click",function(){
 	$("#panelC").empty();
 	popularCocktail(queryURLPC);
@@ -179,7 +191,7 @@ $("#closePanel").on("click",function(){
   $('.popCocktailH-S').hide(1000);
   });
   
-  //Save as Favorite
+//Save as Favorite
   $("#closePanel").on("click",function(){
     $('.popCocktailH-S').hide();
     });
@@ -208,7 +220,6 @@ $("#closePanel").on("click",function(){
           let resultDisplay = document.createElement("p");
           resultDisplay.innerHTML = "<span style='color: red;'> No Results Display </span>"
           displayDrinks.appendChild(resultDisplay);
-
         }
 
         else { 
@@ -224,10 +235,7 @@ $("#closePanel").on("click",function(){
               displayDrinks.appendChild(cocktailImage);
           }
 
-        }
-
- 
-
+        } 
         console.log(cocktailData)
     });
 });
