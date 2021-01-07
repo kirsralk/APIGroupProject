@@ -44,22 +44,27 @@
 
       <!--Popular recipe buttons-->
           <p>Not sure where to begin? Click to see our:</p>
-            <button id="popTaco" class="button is-danger is-light">Generate a Taco</button>
+            <button id="popTaco" class="button is-danger is-light">Random Taco Recipe</button>
             <button id="popCocktail" class="button is-danger is-light">Most Popular Cocktail</button>
             
       <!-- Create a Panel for Most Popular Cocktail -->
           <br />
           <br />
-           <article class="panel is-warning popCocktailH-S" style="display: none;">
-            <p class="panel-heading"></p>
-            <div class="panel-block has-text-left whiteBgd overflow">
-              <img class ="image is-128x128" id="cocktailImg" src="" style="display: none;">
-              <a class="panel-block" id="panelC"></a>
-            </div>
-            <div class="whiteBgd overflow is-mobile is-centered">
-              <button id="closePanel" class="button is-warning is-small">Close</button>
-              <button id="saveFavorite" class="button is-warning is-small">Save as Favorite</button>
-          </article>
+          <div class="box popCocktailH-S" style="display: none;">
+            <article class="media">
+              <div class="media-left">
+                <figure class="image is-128x128">
+                  <img src="" id ="cocktailImg" alt="Image">
+                </figure>
+              </div>
+              <div class="media-content has-text-left">
+                <div class="content" id="panelC"></div>
+              </div>
+            </article>
+            <br />
+            <button id="closePanel" class="button is-warning is-small">Close</button>
+            <button id="saveFavorite" class="button is-warning is-small">Save as Favorite</button>
+          </div>
           <br />
           <br />
       </div>  
@@ -73,7 +78,13 @@
       <!--Form 1: Handles Taco Searches-->
       <div class="column is-half">
         <h3 class="title is-3">Taco Search 🌮</h3>
-
+        <div>
+          <label class="checkbox"><input type="checkbox" id="beef"> <b>Beef 🐄</b></label>
+          <label class="checkbox"><input type="checkbox" id="chicken"> <b>Chicken 🐔</b></label>
+          <label class="checkbox"><input type="checkbox" id="pork"> <b>Pork 🐖</b></label>
+          <label class="checkbox"><input type="checkbox" id="vegOnly"> <b>Vegetarian 🌿</b></label>
+        </div>
+        <br />
         <div class="field has-addons" id="tacoDiv">
           <!-- <label class="label">Taco Search</label> -->
           <p class="control is-expanded">
@@ -132,18 +143,14 @@
       <!--Search Results will populate here-->
       <br />
       <br />
-       <article class="panel is-warning" id="searchRes" style="display: none;">
-        <p class="panel-heading" id="searchHead"></p>
-        <div class="panel-block has-text-left whiteBgd overflow">
-          <a class="panel-block" id="showSearch">
-            Matches for the search term: &nbsp; <span class="is-capitalized is-italic" id="searchTerm"></span>
-          </a>
-          <br />
-          <a class="panel-block div-flex" id="resHere"></a>
-        </div>
-      </article>
-      <br />
-      <br />
+      <div class="box resultsH-S" style="display: none;" id="searchRes">
+        <article class="media">
+        <div class="media-content has-text-left">
+            <div class="content" id="showSearch"><b>Matches for the search term: &nbsp;</b> <span class="is-capitalized is-italic" id="searchTerm"></span> </div>
+            <div class="content" id="resHere"></div>
+          </div>
+        </article>
+      </div>
   </div>  
   <div class="column is-one-quarter"></div>
 </div> <!--End row-->
@@ -161,7 +168,7 @@
 <footer>
   <p class="has-text-centered"><b>💃 Made by Kirsi, Christian & Mike</b></p>
   <p class="has-text-centered">Powered by <a href="https://bulma.io/" target="blank">Bulma</a>, 
-    <a href="https://github.com/evz/tacofancy-api" target="blank">TacoFancyAPI</a> & 
+    <a href="https://spoonacular.com/food-api" target="blank">SpoonacularAPI</a> & 
     <a href="https://www.thecocktaildb.com/" target="blank">TheCocktailDB</a>. </p>
     <br />
 </footer>
