@@ -13,10 +13,13 @@ document.getElementById("countdown").innerHTML = "<b>" + days + " Days until Cin
 });
 
 //Setup variables
+//Variable for Random idTaco
+var idTaco=662744;
+var apiKey="1f55b1e7b1524a14a289349c7a011b63";
 //query Url for popular cocktail
 var queryURLPC="https://www.thecocktaildb.com/api/json/v2/9973533/popular.php";
 //Query url for random Taco
-var queryURLRT="https://api.spoonacular.com/recipes/662744/information?apiKey=844a117f5f0d427abe3f7d0dda4d2705&includeNutrition=true";
+//var queryURLRT="https://api.spoonacular.com/recipes/662744/information?apiKey=844a117f5f0d427abe3f7d0dda4d2705&includeNutrition=true";
 //Query URL for Taco Search
 var queryURLTaco ="https://api.spoonacular.com/recipes/complexSearch";
 
@@ -28,6 +31,30 @@ function searchTaco(queryURLTaco) {
     console.log()
   });
 };
+//function to retrieve Random Taco ID
+
+  function generateRandomId()
+{
+  queyurl="https://api.spoonacular.com/recipes/complexSearch?&number=20&apiKey="+ apiKey + "&query=taco"
+  $.ajax({
+    url:queyurl,
+    method: "GET"
+  }).done(function(response) {
+    var arrayTaco=response.results
+    var tacolimit=arrayTaco.length;
+    var randomNum=Math.floor(Math.random() * tacolimit);
+    var taco=arrayTaco[randomNum].id;
+    console.log(taco);
+
+    // }
+    console.log(response.results);
+    console.log(arrayTaco);
+    console.log(tacolimit);
+    idTaco=taco;
+  }
+  
+  );
+}
 
 //Functions to retreive Popular cocktail
 function popularCocktail(queryUrlPopularCocktail){
@@ -150,7 +177,7 @@ function populateRandomTaco(queryRandomTaco) {
         var tacoName = $('<p>');
         tacoName.text(tacoData.title);        
         var pRandomTaco=$('<p>');
-        pRandomTaco.text(tacoData.instructions);
+        pRandomTaco.html(tacoData.instructions);
         var tacoImg = tacoData.image;
 
         // Create a new <h4> tag to display the drink's title
@@ -180,7 +207,11 @@ $("#popCocktail").on("click",function(){
 
 $("#popTaco").on("click",function(){
 	$('.popCocktailH-S').show(500);
-	$("#panelC").empty();
+  $("#panelC").empty();
+  generateRandomId();
+  console.log(idTaco);
+  //Query url for random Taco
+  var queryURLRT="https://api.spoonacular.com/recipes/"+idTaco+"/information?apiKey="+ apiKey + "&includeNutrition=true";
 	populateRandomTaco(queryURLRT);
 	$(".panel-heading").text("Here is your Taco");
 	$("#cocktailImg").hide();
