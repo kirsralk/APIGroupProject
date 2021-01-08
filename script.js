@@ -257,13 +257,101 @@ $("#closePanel").on("click",function(){
         // new search
           for (let i =0 ; i < cocktailData.drinks.length ; i++) {
               let displayCocktail = document.createElement("p");
+              let displayIngredientTitle = document.createElement("b");
+
+              let displayIngredients = document.createElement("ul");
               let cocktailImage = document.createElement("img");
 
+              //list ingridients
+              let displayIngredient1 = document.createElement("p");
+              let displayIngredient2 = document.createElement("p");
+              let displayIngredient3 = document.createElement("p");
+              let displayIngredient4 = document.createElement("p");
+              let displayIngredient5 = document.createElement("p");
+              let displayIngredient6 = document.createElement("p");
+              let displayIngredient7 = document.createElement("p");
+              let displayIngredient8 = document.createElement("p");
+              let displayIngredient9 = document.createElement("p");
+              let displayIngredient10 = document.createElement("p");
+              let displayIngredient11 = document.createElement("p");
+              let displayIngredient12 = document.createElement("p");
+              let displayIngredient13 = document.createElement("p");
+              let displayIngredient14= document.createElement("p");
+              let displayIngredient15 = document.createElement("p");
+
+              // fill the p element with data from API
+              displayIngredient1.innerHTML = cocktailData.drinks[i].strIngredient1
+              displayIngredient2.innerHTML = cocktailData.drinks[i].strIngredient2
+              displayIngredient3.innerHTML = cocktailData.drinks[i].strIngredient3
+              displayIngredient4.innerHTML = cocktailData.drinks[i].strIngredient4
+              displayIngredient5.innerHTML = cocktailData.drinks[i].strIngredient5
+              displayIngredient6.innerHTML = cocktailData.drinks[i].strIngredient6
+              displayIngredient7.innerHTML = cocktailData.drinks[i].strIngredient7
+              displayIngredient8.innerHTML = cocktailData.drinks[i].strIngredient8
+              displayIngredient9.innerHTML = cocktailData.drinks[i].strIngredient9
+              displayIngredient10.innerHTML = cocktailData.drinks[i].strIngredient10
+              displayIngredient11.innerHTML = cocktailData.drinks[i].strIngredient11
+              displayIngredient12.innerHTML = cocktailData.drinks[i].strIngredient12
+              displayIngredient13.innerHTML = cocktailData.drinks[i].strIngredient13
+              displayIngredient14.innerHTML = cocktailData.drinks[i].strIngredient14
+              displayIngredient15.innerHTML = cocktailData.drinks[i].strIngredient15
+              // check for null results
+              if (displayIngredient1 != null){
+                displayIngredients.appendChild(displayIngredient1)
+              }
+              if (displayIngredient2 != null){
+                displayIngredients.appendChild(displayIngredient2)
+              }
+              if (displayIngredient3 != null){
+                displayIngredients.appendChild(displayIngredient3)
+              }
+              if (displayIngredient4 != null){
+                displayIngredients.appendChild(displayIngredient4)
+              }
+              if (displayIngredient5 != null){
+                displayIngredients.appendChild(displayIngredient5)
+              }
+              if (displayIngredient6 != null){
+                displayIngredients.appendChild(displayIngredient6)
+              }
+              if (displayIngredient7 != null){
+                displayIngredients.appendChild(displayIngredient7)
+              }
+              if (displayIngredient8 != null){
+                displayIngredients.appendChild(displayIngredient8)
+              }
+              if (displayIngredient9 != null){
+                displayIngredients.appendChild(displayIngredient9)
+              }
+              if (displayIngredient10 != null){
+                displayIngredients.appendChild(displayIngredient10)
+              }
+              if (displayIngredient11 != null){
+                displayIngredients.appendChild(displayIngredient11)
+              }
+              if (displayIngredient12 != null){
+                displayIngredients.appendChild(displayIngredient12)
+              }
+              if (displayIngredient13 != null){
+                displayIngredients.appendChild(displayIngredient13)
+              }
+              if (displayIngredient14 != null){
+                displayIngredients.appendChild(displayIngredient14)
+              }
+              if (displayIngredient15 != null){
+                displayIngredients.appendChild(displayIngredient15)
+              }
+
+
               displayCocktail.innerHTML = cocktailData.drinks[i].strDrink;
+              displayIngredientTitle.innerHTML = "Ingredients"
               cocktailImage.setAttribute("src", cocktailData.drinks[i].strDrinkThumb);
               cocktailImage.setAttribute("class", "image is-128x128");
               displayDrinks.appendChild(displayCocktail);
               displayDrinks.appendChild(cocktailImage);
+              displayDrinks.appendChild(displayIngredientTitle);
+
+              displayDrinks.appendChild(displayIngredients);
           }
 
         } 
