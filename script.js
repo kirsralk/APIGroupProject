@@ -106,7 +106,6 @@ $("#closePanel").on("click",function(){
   $('.popCocktailH-S').hide();
 });
 
-
 // ENTER KEY SEARCH
 // Get the input field
 var input = document.getElementById("cocktailSearch");
@@ -121,4 +120,69 @@ input.addEventListener("keyup", function(event) {
     document.getElementById("cocktailBtn").click();
   }
 });
+
+// LOCAL STORAGE
+// Get search text from input box
+var searchInput = document.querySelector("#cocktailSearch");
+var cocktailForm = document.querySelector("#cocktailBtn");
+var recipeFav = document.querySelector("#saveFavorite");
+
+// Create an array to store searches
+var searches = [];
+init();
+
+function init() {
+  // Get stored searches from localStorage
+  // Parsing the JSON string to an object
+  var storedSearch = JSON.parse(localStorage.getItem("searches"));
+
+  // If searches were retrieved from localStorage, update the search array to it
+  if (storedSearch !== null) {
+    searches = storedSearch;
+  }
+  renderSearches();
+}
+
+// When form is submitted...
+function storeSearches() {
+  // Stringify and set "searches" key in localStorage to search array
+  localStorage.setItem("searches", JSON.stringify(searches));
+}
+
+function renderSearches() {
+  // Render a new <a> for each search
+  for (var i = 0; i < searches.length; i++) {
+    var search = searches[i];
+    var searchHistory = $("#searchHistory");
+
+    var searchP = document.createElement("span");
+    searchP.textContent = search;
+    searchHistory.append(searchP);
+  }
+};
+
+function cocktailStore(){
+  // event.preventDefault();
+  var searchText = searchInput.value.trim();
+
+  // Return from function early if submitted blank
+  if (searchInput === "") {
+    return;
+  }
+
+  // Add new searches to the array, clear the input field
+  searches.push(searchText);
+  searchInput.value = "";
+
+  // // Store updated searches in localStorage, re-render the list
+    storeSearches();
+    renderSearches();
+};
+
+$("#clearStore").on("click", function(){
+  alert("this button works");
+  localStorage.clear();
+});
+
+console.log("The user's search history: " + searches);
 

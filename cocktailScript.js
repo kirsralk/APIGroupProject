@@ -224,6 +224,7 @@ document.getElementById("cocktailBtn").addEventListener("click", function() {
 
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + searchField.value)
     .then((response) => {
+        cocktailStore();
         return response.json();
     })
     // ************************************************** APP  starts HERE*****************************************************
