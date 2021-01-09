@@ -31,7 +31,7 @@
 </nav>
 
 <!-- Main website content-->
-  <section class="section">
+  <section class="section main">
 
     <!--Top row with headings-->
     <div class="columns is-centered is-12">
@@ -116,9 +116,10 @@
           <p class="control">
              <a class="button is-warning" id="cocktailBtn">Search</a>
           </p>
-          <span id="tacoResults"></span>
-        </div> <!--End Form-->
 
+          
+        </div> <!--End Form-->
+        <p> <button id="clearStore">Clear Local Storage</button></p>
         <br /> 
         <p class="has-text-centered"><b>Or choose from the most popular alcohol selections:</b></p>
 
@@ -141,28 +142,35 @@
         </div>
 
       <!--Search Results will populate here-->
-      <br />
-      <br />
-      <div class="box resultsH-S" style="display: none;" id="searchRes">
-        <article class="media">
-        <div class="media-content has-text-left">
-            <div class="content" id="showSearch"><b>Matches for the search term: &nbsp;</b> <span class="is-capitalized is-italic" id="searchTerm"></span> </div>
-            <div class="content" id="resHere"></div>
-          </div>
-        </article>
-      </div>
   </div>  
   <div class="column is-one-quarter"></div>
 </div> <!--End row-->
 </div> <!--End form-->
 
-<!--Temporary dev button to clear local storage-->
-</div> <!--End this row-->
-<div class="column is-one-quarter"><button id="clearStore">Clear Local Storage</button></div>
-</div>
     </div> <!--End this row-->
     <div class="column is-one-quarter"></div>
     </div>
+  </section>
+
+  <section class= "second">
+  <div class="columns is-centered is-12">
+      <div class="column is-one-quarter"></div>
+
+        <!--Main Div with contents of search results-->
+        <div class="column is-half has-text-centered">
+          <div class="box resultsH-S" style="display: none;" id="searchRes">
+            <article class="media">
+              <div class="media-content has-text-left">
+                <div class="content" id="showSearch"><b>Matches for the search term: &nbsp;</b> <span class="is-capitalized is-italic" id="searchTerm"></span> </div>
+                <div class="content" id="resHere"></div>
+              </div>
+            </article>
+          </div>      
+      </div>
+      
+      <div class="column is-one-quarter"></div>
+  </div>
+   
   </section>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -172,6 +180,7 @@
 </body>
 
 <footer>
+  <br />
   <p class="has-text-centered"><b>💃 Made by Kirsi, Christian & Mike</b></p>
   <p class="has-text-centered">Powered by <a href="https://bulma.io/" target="blank">Bulma</a>, 
     <a href="https://spoonacular.com/food-api" target="blank">SpoonacularAPI</a> & 

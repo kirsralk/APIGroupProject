@@ -3,24 +3,20 @@ a {
     color: rgb(161, 9, 9);
   }
 
-body {
+.main {
     background-image: url("assets/resizedCactus.png");
     background-size: cover;
-  }
-
-.div-flex {
-  display: flex;
-  flex-wrap: wrap;
 }
+
+.second {
+    background-color: #F1D141;
+}
+
 
 .img-cocktail {
     float: left;
     margin-right: 30px;
   }
-
-.overflow {
-  overflow-wrap: break-word;
-}
 
 .whiteBgd {
   background-color: white;

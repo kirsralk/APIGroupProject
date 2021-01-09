@@ -89,7 +89,7 @@ $("#popTaco").on("click",function(){
 	$("#cocktailImg").hide();
 });
 
-//
+//Function to populate if user clicks to search by alcohol drop down
 $("#alcoholBtn").on("click",function(){
   $("#resHere").empty();
   getCocktailByPopularAlcohol()
@@ -150,13 +150,13 @@ function storeSearches() {
 }
 
 function renderSearches() {
-  // Render a new <a> for each search
+  // Render a new <span> item for each search
   for (var i = 0; i < searches.length; i++) {
     var search = searches[i];
     var searchHistory = $("#searchHistory");
-
     var searchP = document.createElement("span");
-    searchP.textContent = search;
+    searchP.setAttribute("class","is-italic is-capitalized");
+    searchP.textContent = search + ", ";
     searchHistory.append(searchP);
   }
 };
@@ -176,12 +176,14 @@ function cocktailStore(){
 
   // // Store updated searches in localStorage, re-render the list
     storeSearches();
+    $("#searchHistory").empty();
     renderSearches();
 };
 
 $("#clearStore").on("click", function(){
   alert("this button works");
   localStorage.clear();
+  location.reload();
 });
 
 console.log("The user's search history: " + searches);
