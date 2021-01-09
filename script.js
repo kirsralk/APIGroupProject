@@ -89,6 +89,13 @@ $("#popTaco").on("click",function(){
 	$("#cocktailImg").hide();
 });
 
+//
+$("#alcoholBtn").on("click",function(){
+  $("#resHere").empty();
+  getCocktailByPopularAlcohol()
+	$('#searchRes').show(500);
+});
+
 //Close Panel for Most Popular cocktail or Random TACO
 $("#closePanel").on("click",function(){
   $('.popCocktailH-S').hide(1000);
