@@ -73,7 +73,6 @@ function populateRandomTaco(queryRandomTaco) {
 $("#popCocktail").on("click",function(){
 	$("#panelC").empty();
 	popularCocktail(queryURLPC);
-	$(".panel-heading").text("Most Popular Cocktail");
 	$('.popCocktailH-S').show(500);
 });
 
@@ -82,10 +81,10 @@ $("#popTaco").on("click",function(){
   $("#panelC").empty();
   generateRandomId();
   console.log(idTaco);
+
   //Query url for random Taco
-  var queryURLRT="https://api.spoonacular.com/recipes/"+idTaco+"/information?apiKey="+ apiKey + "&includeNutrition=true";
+  var queryURLRT= "https://api.spoonacular.com/recipes/" + idTaco + "/information?apiKey=" + apiKey + "&includeNutrition=true";
 	populateRandomTaco(queryURLRT);
-	$(".panel-heading").text("Here is your Taco");
 	$("#cocktailImg").hide();
 });
 

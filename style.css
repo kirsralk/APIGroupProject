@@ -1,17 +1,44 @@
-/* Styles applied to all elements */
 a {
     color: rgb(161, 9, 9);
   }
 
-.main {
+/*MOBILE STYLES*/
+@media only screen and (max-width: 480px) {
+  .main {
+    background-image: url("assets/cactusMobile.png");
+    background-repeat: no-repeat;
+    background-color: #05cac2;
+  }
+
+  .is-half {
+    background: rgba(241, 245, 241, 0.6);
+    border-radius: 10px;
+  }
+
+  .lg-view-padding {
+    display: none;
+  }
+}
+
+/*MID SIZE STYLES*/
+@media only screen and (min-width: 481px) {
+  .main {
     background-image: url("assets/resizedCactus.png");
     background-size: cover;
-}
+    /* height: 80vh; */
+  }
 
-.second {
+  .second {
     background-color: #F1D141;
+  }
 }
 
+/*Persistent classes on all sizes*/
+
+.btn-margin {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
 
 .img-cocktail {
     float: left;

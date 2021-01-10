@@ -44,12 +44,11 @@
 
       <!--Popular recipe buttons-->
           <p>Not sure where to begin? Click to see our:</p>
-            <button id="popTaco" class="button is-danger is-light">Random Taco Recipe</button>
-            <button id="popCocktail" class="button is-danger is-light">Most Popular Cocktail</button>
+            <button id="popTaco" class="button is-danger is-light btn-margin">Random Taco Recipe</button>
+            <button id="popCocktail" class="button is-danger is-light btn-margin">Most Popular Cocktail</button>
             
       <!-- Create a Panel for Most Popular Cocktail -->
-          <br />
-          <br />
+
           <div class="box popCocktailH-S" style="display: none;">
             <article class="media">
               <div class="media-left">
@@ -65,8 +64,6 @@
             <button id="closePanel" class="button is-warning is-small">Close</button>
             <button id="saveFavorite" class="button is-warning is-small">Save as Favorite</button>
           </div>
-          <br />
-          <br />
       </div>  
       <div class="column is-one-quarter"></div>
     </div> <!--End first row-->
@@ -102,25 +99,24 @@
 
     <!-- Third row with search contents-->
     <div class="columns">
-    <div class="column is-one-quarter"></div>
+      <div class="column is-one-quarter"></div>
 
       <!--Form 2: Handles Cocktail Searches-->
       <div class="column is-half">
         <h3 class="title is-3">Cocktail Search 🍹</h3>
-        <p><b>Recent Searches: </b><span id="searchHistory"></span></p>
-        <div class="field has-addons" id="cocktailDiv">
-          <!-- <label class="label">Taco Search</label> -->
-          <p class="control is-expanded">
-            <input class="input is-danger" type="text" placeholder="Enter cocktail keywords" id="cocktailSearch">
-          </p>
-          <p class="control">
-             <a class="button is-warning" id="cocktailBtn">Search</a>
-          </p>
+        <p style="margin-bottom: 5px;"><b>Recent Searches: </b><span id="searchHistory"></span></p>
+        <!-- <p><button id="clearStore" class="button is-primary is-light is-small">Clear My Searches</button></p> -->
 
-          
-        </div> <!--End Form-->
-        <p> <button id="clearStore">Clear Local Storage</button></p>
-        <br /> 
+          <div class="field has-addons" id="cocktailDiv">
+            <p class="control is-expanded">
+              <input class="input is-danger" type="text" placeholder="Enter cocktail keywords" id="cocktailSearch">
+            </p>
+            <p class="control">
+             <a class="button is-warning" id="cocktailBtn">Search</a>
+            </p>
+
+          </div> <!--End Form-->
+          <p style="margin-bottom: 3px;"><a id="clearStore"><u>Clear My Searches</u></a></p>
         <p class="has-text-centered"><b>Or choose from the most popular alcohol selections:</b></p>
 
         <!--Drop down menu for cocktail ingredients-->
@@ -140,18 +136,14 @@
             <a class="button is-warning" id="alcoholBtn">Search</a>
           </p>
         </div>
+        <div class="lg-view-padding"><br /><br /></div>
+      </div> 
 
-      <!--Search Results will populate here-->
-  </div>  
-  <div class="column is-one-quarter"></div>
-</div> <!--End row-->
-</div> <!--End form-->
-
-    </div> <!--End this row-->
-    <div class="column is-one-quarter"></div>
-    </div>
+      <div class="column is-one-quarter"></div>
+    </div> <!--End row-->
   </section>
 
+  <!--Search Results will populate here-->
   <section class= "second">
   <div class="columns is-centered is-12">
       <div class="column is-one-quarter"></div>
@@ -167,7 +159,7 @@
             </article>
           </div>      
       </div>
-      
+
       <div class="column is-one-quarter"></div>
   </div>
    
