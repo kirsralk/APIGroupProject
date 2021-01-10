@@ -76,10 +76,34 @@
       <div class="column is-half">
         <h3 class="title is-3">Taco Search 🌮</h3>
         <div>
-          <label class="checkbox"><input type="checkbox" id="beef"> <b>Beef 🐄</b></label>
+          <!-- <label class="checkbox"><input type="checkbox" id="beef"> <b>Beef 🐄</b></label>
           <label class="checkbox"><input type="checkbox" id="chicken"> <b>Chicken 🐔</b></label>
           <label class="checkbox"><input type="checkbox" id="pork"> <b>Pork 🐖</b></label>
-          <label class="checkbox"><input type="checkbox" id="vegOnly"> <b>Vegetarian 🌿</b></label>
+          <label class="checkbox"><input type="checkbox" id="vegOnly"> <b>Vegetarian 🌿</b></label> -->
+          <div class="field has-addons has-addons-centered">
+            <p class="control">
+              <span class="select is-warning">
+                <select id="selectedNV">
+                  <option value="nil">Select a Non-Vegeterian Taco :Beef 🐄 or hicken 🐔 or Pork 🐖</option>
+                </select>
+              </span>
+            </p>
+            <p class="control">
+              <a class="button is-warning" id="NonVegBtn">Search</a>
+            </p>
+          </div>
+          <div class="field has-addons has-addons-centered">
+            <p class="control">
+              <span class="select is-warning">
+                <select id="selectedV">
+                  <option value="nil">Select a vegeterain Taco 🌿</option>
+                </select>
+              </span>
+            </p>
+            <p class="control">
+              <a class="button is-warning" id="VegBtn">Search</a>
+            </p>
+          </div>
         </div>
         <br />
         <div class="field has-addons" id="tacoDiv">
@@ -157,6 +181,7 @@
                 <div class="content" id="resHere"></div>
               </div>
             </article>
+            <button id="closeBox" class="button is-warning is-small">Close</button>
           </div>      
       </div>
 
