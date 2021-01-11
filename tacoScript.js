@@ -7,22 +7,6 @@ var arrVegetarian=[];
 searchTaco();
 console.log(arrNonVegetarian.length);
 
-// Query url for random Taco
-//var queryURLRT="https://api.spoonacular.com/recipes/662744/information?apiKey=844a117f5f0d427abe3f7d0dda4d2705&includeNutrition=true";
-
-// Query URL for Taco Search
-// var queryURLTaco ="https://api.spoonacular.com/recipes/complexSearch";
-
-// function searchTaco(queryURLTaco) {
-//     $.ajax({
-//     url: queryURLTaco,
-//     method: "GET"
-//     })
-
-//     .done(function(){
-//         console.log();
-//     });
-// };
 
 function searchTaco() {
      var arr1=[];
@@ -40,16 +24,12 @@ function searchTaco() {
         {
             console.log(TacoData.results[i].id);
             var queryURLTaco1 ="https://api.spoonacular.com/recipes/"+ TacoData.results[i].id+"/information?apiKey="+ apiKey  +"&includeNutrition=true";
-           //var queryURLTaco1 ="https://api.spoonacular.com/recipes/986003/information?apiKey=c1586d2fe3e148e3bd990539003b27ed&includeNutrition=true";
             $.ajax({
             url: queryURLTaco1,
             method: "GET"
             })
             .done(function(TacoData1){
-                // console.log("below is my object");
-                // console.log(TacoData1);
-                // console.log(TacoData1.vegan);
-                // console.log(TacoData1.vegetarian);
+                
                 if(TacoData1.vegetarian===false)
                 {
                     var idT=TacoData1.id;
@@ -90,28 +70,6 @@ function searchTaco() {
     }
  });
 }
-// function fetchTaco()
-// { 
-//     console.log(arrNonVegetarian.length);
-//     for (i=0;i<arrNonVegetarian.length;i++)
-//     {
-//         console.log(arrNonVegetarian[i]);
-//         console.log("this is a test");
-//          var queryNonVeg ="https://api.spoonacular.com/recipes/"+ arrNonVegetarian[i] +"/information?apiKey="+ apiKey  +"&includeNutrition=true";
-//            //var queryURLTaco1 ="https://api.spoonacular.com/recipes/986003/information?apiKey=c1586d2fe3e148e3bd990539003b27ed&includeNutrition=true";
-//             $.ajax({
-//             url: queryNonVeg,
-//             method: "GET"
-//             })
-        
-//             .done(function(TacoNonVeg){
-//                 var optNonVeg=$("<option>");
-//                 optNonVeg.value(TacoNonVeg.title);
-//                 optNonVeg.attr("id",TacoNonVeg.id);
-//                 ("#selectedNV").append(optNonVeg);
-//             });
-//     }
-// }
 
 
 // Function to retrieve Random Taco ID
@@ -167,8 +125,6 @@ function getNonVegTaco()
              tacoDiv.append(imgTaco);
              tacoDiv.append(pTaco);
              
-            //console.log(tacoData);
-            //console.log(tacoData.instructions);
           });
     
 }
@@ -203,7 +159,6 @@ function getVegTaco()
              tacoDiv.append(imgTaco);
              tacoDiv.append(pTaco);
              
-            //console.log(tacoData);
-            //console.log(tacoData.instructions);
+            
           });
 }
