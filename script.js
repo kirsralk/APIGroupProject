@@ -1,50 +1,20 @@
+// ----------------------------------------------------------------------------COUNTDOWN TIMER ------------------------------------------------------------------------ //
 // Countdown line on main page
 var countDownDate = new Date("May 5, 2021 00:00:01").getTime();
 var x = setInterval(function() {
-var now = new Date().getTime();
-var distance = countDownDate - now;
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
 
-// Time calculations for days, hours, minutes and seconds
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-// Display the result in the element with id="countdown"
-document.getElementById("countdown").innerHTML = "<b>" + days + " Days until Cinco de Mayo 2021!" + "</b>";
+  // Display the result in the element with id="countdown"
+  document.getElementById("countdown").innerHTML = "<b>" + days + " Days until Cinco de Mayo 2021!" + "</b>";
 });
 
-// Function to show results of taco search
-function addTacoResult() {
-  // alert("This function runs");
-  var searchTerm = $("#tacoSearch").val().trim();
-  $("#searchHead").text("Taco Search Results");
-  $('#searchRes').show(500);
-  $('#searchTerm').text(searchTerm);
-};
 
-$("#tacoBtn").on("click",function(){
-event.preventDefault();
-//addTacoResult();
-// console.log(arrNonVegetarian.length)
-// searchTaco();
+// ---------------------------------------------------------------------- TACO RELATED MAIN PAGE FUNCTIONS ------------------------------------------------------------------------- //
 
-//fetchTaco();
-});
-
-// Function to show results of cocktail search
-function addCocktailResult() {
-  // alert("This function runs");
-  var searchTerm = $("#cocktailSearch").val().trim();
-
-  $("#searchHead").text("Cocktail Search Results");
-  $('#searchRes').show(500);
-  $('#searchTerm').text(searchTerm);
-};
-
-// Event listener for click of Cocktail Search Button
-  $("#cocktailBtn").on("click",function(){
-    addCocktailResult();
-  });
-
-//Main Process
 //Function to populate a random Taco
 function populateRandomTaco(queryRandomTaco) {
   $.ajax({
@@ -74,23 +44,62 @@ function populateRandomTaco(queryRandomTaco) {
       });
 };
 
+// Event listener to display random Taco
+$("#popTaco").on("click",function() {
+  var queryURLRT= "https://api.spoonacular.com/recipes/" + idTaco + "/information?apiKey=" + apiKey + "&includeNutrition=true";
+	$('.popCocktailH-S').show(500);
+  $("#panelC").empty();
+  generateRandomId();
+  populateRandomTaco(queryURLRT);
+	$("#cocktailImg").hide();
+});
+
+
+// Function to show results of taco search
+function addTacoResult() {
+  var searchTerm = $("#tacoSearch").val().trim();
+  $("#searchHead").text("Taco Search Results");
+  $('#searchRes').show(500);
+  $('#searchTerm').text(searchTerm);
+};
+
+
+//Click event  to get a Taco based on user selection
+$("#NonVegBtn").on("click",function() {
+  $("#resHere").empty();
+  getNonVegTaco();
+  $('#searchRes').show(500);
+});
+
+//Click event to get a Veg taco based on user selection
+$("#VegBtn").on("click",function() {
+  $("#resHere").empty();
+  getVegTaco();
+  $('#searchRes').show(500);
+});
+  
+
+// ------------------------------------------------------------------ COCKTAIL RELATED MAIN PAGE FUNCTIONS ------------------------------------------------------------------------ //
+
+// Function to show results of cocktail search
+function addCocktailResult() {
+  var searchTerm = $("#cocktailSearch").val().trim();
+
+  $("#searchHead").text("Cocktail Search Results");
+  $('#searchRes').show(500);
+  $('#searchTerm').text(searchTerm);
+};
+
+// Event listener for click of Cocktail Search Button
+  $("#cocktailBtn").on("click",function(){
+    addCocktailResult();
+  });
+
 //Function to populate the Most Popular Cocktail
 $("#popCocktail").on("click",function(){
 	$("#panelC").empty();
 	popularCocktail(queryURLPC);
 	$('.popCocktailH-S').show(500);
-});
-
-$("#popTaco").on("click",function(){
-	$('.popCocktailH-S').show(500);
-  $("#panelC").empty();
-  generateRandomId();
-  console.log(idTaco);
-
-  //Query url for random Taco
-  var queryURLRT= "https://api.spoonacular.com/recipes/" + idTaco + "/information?apiKey=" + apiKey + "&includeNutrition=true";
-	populateRandomTaco(queryURLRT);
-	$("#cocktailImg").hide();
 });
 
 //Function to populate if user clicks to search by alcohol drop down
@@ -100,35 +109,19 @@ $("#alcoholBtn").on("click",function(){
 	$('#searchRes').show(500);
 });
 
+// ------------------------------------------------------------------------------- GENERAL FUNCTIONS ---------------------------------------------------------------- //
+
 //Close Panel for Most Popular cocktail or Random TACO
-$("#closePanel").on("click",function(){
+$("#closePanel").on("click",function() {
   $('.popCocktailH-S').hide(1000);
 });
-//Click event  to get a Taco based on user selection
-$("#NonVegBtn").on("click",function(){
-  $("#resHere").empty();
-  getNonVegTaco();
-  $('#searchRes').show(500);
-  //alert("testing");
-});
-//Click event to get a Veg taco based on user selection
-$("#VegBtn").on("click",function(){
-  $("#resHere").empty();
-  getVegTaco();
-  $('#searchRes').show(500);
-});
-  
-//Save as Favorite
-$("#closePanel").on("click",function(){
-  $('.popCocktailH-S').hide();
-});
 
-//close the result box
-$("#closeBox").on("click",function(){
+// Close the result box
+$("#closeBox").on("click",function() {
   $("#searchRes").hide();
 });
 
-// ENTER KEY SEARCH
+// Search when user presses enter key
 // Get the input field
 var input = document.getElementById("cocktailSearch");
 
@@ -143,7 +136,8 @@ input.addEventListener("keyup", function(event) {
   }
 });
 
-// LOCAL STORAGE
+// ----------------------------------------------------------------------- LOCAL STORAGE -------------------------------------------------------------- //
+
 // Get search text from input box
 var searchInput = document.querySelector("#cocktailSearch");
 var cocktailForm = document.querySelector("#cocktailBtn");
@@ -154,8 +148,7 @@ var searches = [];
 init();
 
 function init() {
-  // Get stored searches from localStorage
-  // Parsing the JSON string to an object
+  // Get stored searches from localStorage & parse the JSON string to an object
   var storedSearch = JSON.parse(localStorage.getItem("searches"));
 
   // If searches were retrieved from localStorage, update the search array to it
@@ -183,7 +176,7 @@ function renderSearches() {
   }
 };
 
-function cocktailStore(){
+function cocktailStore() {
   // event.preventDefault();
   var searchText = searchInput.value.trim();
 
@@ -196,17 +189,8 @@ function cocktailStore(){
   searches.push(searchText);
   searchInput.value = "";
 
-  // // Store updated searches in localStorage, re-render the list
-    storeSearches();
-    $("#searchHistory").empty();
-    renderSearches();
+  // Store updated searches in localStorage, re-render the list
+  storeSearches();
+  $("#searchHistory").empty();
+  renderSearches();
 };
-
-$("#clearStore").on("click", function(){
-  alert("this button works");
-  localStorage.clear();
-  location.reload();
-});
-
-console.log("The user's search history: " + searches);
-
