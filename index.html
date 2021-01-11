@@ -11,25 +11,6 @@
 
 <body>
 
-<!--Navigation Bar-->
-<nav class="navbar" role="navigation" aria-label="main navigation">  
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-   
-      <!--Navbar Items-->
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item">Home</a>  
-          <a class="navbar-item">Documentation</a>
-          <a class="navbar-item">Documentation</a>
-        </div>
-      </div>
-</nav>
-
 <!-- Main website content-->
   <section class="section main">
 
@@ -62,7 +43,6 @@
             </article>
             <br />
             <button id="closePanel" class="button is-warning is-small">Close</button>
-            <button id="saveFavorite" class="button is-warning is-small">Save as Favorite</button>
           </div>
       </div>  
       <div class="column is-one-quarter"></div>
@@ -75,51 +55,47 @@
       <!--Form 1: Handles Taco Searches-->
       <div class="column is-half">
         <h3 class="title is-3">Taco Search 🌮</h3>
-        <div>
-          <!-- <label class="checkbox"><input type="checkbox" id="beef"> <b>Beef 🐄</b></label>
-          <label class="checkbox"><input type="checkbox" id="chicken"> <b>Chicken 🐔</b></label>
-          <label class="checkbox"><input type="checkbox" id="pork"> <b>Pork 🐖</b></label>
-          <label class="checkbox"><input type="checkbox" id="vegOnly"> <b>Vegetarian 🌿</b></label> -->
-          <div class="field has-addons has-addons-centered">
-            <p class="control">
-              <span class="select is-warning">
-                <select id="selectedNV">
-                  <option value="nil">Select a Non-Vegeterian Taco :Beef 🐄 or hicken 🐔 or Pork 🐖</option>
-                </select>
-              </span>
-            </p>
-            <p class="control">
-              <a class="button is-warning" id="NonVegBtn">Search</a>
-            </p>
-          </div>
-          <div class="field has-addons has-addons-centered">
-            <p class="control">
-              <span class="select is-warning">
-                <select id="selectedV">
-                  <option value="nil">Select a vegeterain Taco 🌿</option>
-                </select>
-              </span>
-            </p>
-            <p class="control">
-              <a class="button is-warning" id="VegBtn">Search</a>
-            </p>
-          </div>
-        </div>
-        <br />
-        <div class="field has-addons" id="tacoDiv">
-          <!-- <label class="label">Taco Search</label> -->
-          <p class="control is-expanded">
-            <input class="input is-danger" type="text" placeholder="Enter taco keywords" id="tacoSearch">
-          </p>
-          <p class="control">
-             <a class="button is-warning" id="tacoBtn">Search</a>
-          </p>
-          <span id="tacoResults"></span>
-        </div> <!--End Form-->
 
-      </div> <!--End this column container-->
+          <div class="has-text-centered">
+            <p><b>Meaty Taco Recipes 🍖 </b></p>
+            <div>
+              <div class="field has-addons has-addons-centered">
+                <p class="control">
+                  <span class="select is-warning">
+                    <select id="selectedNV">
+                      <option value="nil">Select a Meaty Recipe</option>
+                    </select>
+                  </span>
+                </p>
+                <p class="control">
+                  <a class="button is-warning" id="NonVegBtn">Search</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="has-text-centered">
+            <p><b>Vegetarian Taco Recipes 🌿 </b></p>
+            <div class="field has-addons has-addons-centered">
+              <p class="control">
+                <span class="select is-warning">
+                  <select id="selectedV">
+                    <option value="nil">Select a Veggie Recipe</option>
+                  </select>
+                </span>
+              </p>
+              <p class="control">
+                <a class="button is-warning" id="VegBtn">Search</a>
+              </p>
+            </div>
+          </div>
+          <!--End nested divs-->
+
+        
+      </div> <!--End Form-->
+      
       <div class="column is-one-quarter"></div>
-    </div> <!--End this row-->
+    </div> <!--End this column container-->
 
     <!-- Third row with search contents-->
     <div class="columns">
@@ -129,7 +105,6 @@
       <div class="column is-half">
         <h3 class="title is-3">Cocktail Search 🍹</h3>
         <p style="margin-bottom: 5px;"><b>Recent Searches: </b><span id="searchHistory"></span></p>
-        <!-- <p><button id="clearStore" class="button is-primary is-light is-small">Clear My Searches</button></p> -->
 
           <div class="field has-addons" id="cocktailDiv">
             <p class="control is-expanded">
@@ -138,9 +113,7 @@
             <p class="control">
              <a class="button is-warning" id="cocktailBtn">Search</a>
             </p>
-
           </div> <!--End Form-->
-          <p style="margin-bottom: 3px;"><a id="clearStore"><u>Clear My Searches</u></a></p>
         <p class="has-text-centered"><b>Or choose from the most popular alcohol selections:</b></p>
 
         <!--Drop down menu for cocktail ingredients-->

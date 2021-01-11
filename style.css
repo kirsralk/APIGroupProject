@@ -18,6 +18,11 @@ a {
   .lg-view-padding {
     display: none;
   }
+
+  select {
+    width: 250px;
+  }
+
 }
 
 /*MID SIZE STYLES*/
@@ -25,7 +30,6 @@ a {
   .main {
     background-image: url("assets/resizedCactus.png");
     background-size: cover;
-    /* height: 80vh; */
   }
 
   .second {
