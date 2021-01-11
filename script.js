@@ -21,7 +21,12 @@ function addTacoResult() {
 };
 
 $("#tacoBtn").on("click",function(){
-addTacoResult();
+event.preventDefault();
+//addTacoResult();
+// console.log(arrNonVegetarian.length)
+// searchTaco();
+
+//fetchTaco();
 });
 
 // Function to show results of cocktail search
@@ -99,10 +104,28 @@ $("#alcoholBtn").on("click",function(){
 $("#closePanel").on("click",function(){
   $('.popCocktailH-S').hide(1000);
 });
+//Click event  to get a Taco based on user selection
+$("#NonVegBtn").on("click",function(){
+  $("#resHere").empty();
+  getNonVegTaco();
+  $('#searchRes').show(500);
+  //alert("testing");
+});
+//Click event to get a Veg taco based on user selection
+$("#VegBtn").on("click",function(){
+  $("#resHere").empty();
+  getVegTaco();
+  $('#searchRes').show(500);
+});
   
 //Save as Favorite
 $("#closePanel").on("click",function(){
   $('.popCocktailH-S').hide();
+});
+
+//close the result box
+$("#closeBox").on("click",function(){
+  $("#searchRes").hide();
 });
 
 // ENTER KEY SEARCH
